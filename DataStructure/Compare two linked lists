@@ -1,0 +1,46 @@
+ static boolean compareLists(SinglyLinkedListNode head1, SinglyLinkedListNode head2) {
+        
+        SinglyLinkedListNode n = head1;
+        SinglyLinkedListNode n1 = head2;
+
+        while(n.next != null){
+            n = n.next;
+        }
+
+        while(n1.next != null){
+            n1 = n1.next;
+        }
+
+        if(isSame(n , n1)){
+            return true;
+        }else{
+            return false;
+        }
+
+    }
+
+    static boolean isSame(SinglyLinkedListNode n , SinglyLinkedListNode n1){
+         Set<Integer> a = new HashSet<Integer>();
+          Set<Integer> b = new HashSet<Integer>();
+
+        while(n.next != null){
+            a.add(n.data);
+            n = n.next;
+        }
+        a.add(n.data);
+
+         while(n1.next != null){
+            b.add(n1.data);
+            n1 = n1.next;
+        }
+        b.add(n1.data);
+
+       Set<Integer> union = new HashSet<Integer>(a);  
+        union.addAll(b); 
+
+        if(a.size() == b.size() && a.size() == union.size()){
+            return true;
+        }else{
+            return false;
+        }
+    }
