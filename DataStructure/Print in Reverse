@@ -1,0 +1,13 @@
+ static void reversePrint(SinglyLinkedListNode head) {
+        ArrayList list = new ArrayList();
+        while(head.next != null){
+            list.add(head.data);
+            head = head.next;
+        }
+        list.add(head.data);
+
+        for(int i = list.size() - 1 ; i >= 0 ; i--){
+            System.out.println(list.get(i));
+        }
+
+    }
