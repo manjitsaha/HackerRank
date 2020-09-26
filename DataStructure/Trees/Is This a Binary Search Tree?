@@ -1,0 +1,21 @@
+ boolean checkBST(Node root) {
+        
+       Stack<Node> stack = new Stack<>();
+        double leftChild = - Double.MAX_VALUE;
+        
+        while(!stack.isEmpty() || root != null) {
+            while(root != null) {
+                stack.push(root);
+                root = root.left;
+            }
+            
+            root = stack.pop();
+            if(root.data <= leftChild)return false;
+            leftChild = root.data;
+            root = root.right;
+        }
+        
+        
+        return true;
+        
+    }
