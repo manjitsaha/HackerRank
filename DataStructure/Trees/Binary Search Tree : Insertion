@@ -1,0 +1,55 @@
+public static Node insert(Node root,int data) {
+
+        Node node = new Node(data);
+
+        if(root == null){ 
+            root = node;
+        }else{
+            Node current = root;
+
+            while(true){
+                if(data > current.data){
+                    if(current.right == null){
+                    current.right = node;
+                    return root;
+                    }
+                 current = current.right;
+
+                }else{
+                    if(current.left == null){
+                    current.left = node;
+                    return root;
+                    }
+                    current = current.left;
+               }
+               
+            }
+
+            
+        }
+        return root;
+    }
+
+
+OR,
+
+
+public void insert(int data) {
+		root = insertData(root, data);
+	}
+	
+Node insertData(Node root , int data) {
+		if(root == null) {
+			root = new Node(data);
+			return root;
+		}
+		
+		if(data < root.data) {
+		 root.left = inSert(root.left, data);
+		}else if(data > root.data) {
+			root.right = inSert(root.right, data);
+			
+		}
+		
+		return root;
+	}
