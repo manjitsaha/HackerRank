@@ -1,0 +1,63 @@
+public class MatrixTranspose {
+
+	public static void main(String[] args) {
+		int[][] a = { 
+                  { 1, 2, 3 }, 
+                  { 4, 5, 6 }, 
+                  { 7, 8, 9 } 
+                };
+    
+   ////  1ST METHOD  ////
+
+		int temp1 = a[0][1];
+		int fst = a[1][0];
+
+		a[0][1] = fst;
+		a[1][0] = temp1;
+
+		int temp2 = a[0][2];
+		int snd = a[2][0];
+
+		a[0][2] = snd;
+		a[2][0] = temp2;
+
+		int temp3 = a[1][2];
+		int trd = a[2][1];
+
+		a[1][2] = trd;
+		a[2][1] = temp3;
+		
+		for (int[] n : a) {
+			System.out.println(Arrays.toString(n));
+		}
+
+		System.out.println();
+		transpose(a);
+
+	}
+  
+  //OR
+  
+        //// 2ND METHOD ////
+
+	public static void transpose(int[][] arr) {
+
+		int i = 0;
+		for (int j = 1; j <= 3;) {
+			int r = arr[i][j];
+			int c = arr[j][i];
+
+			arr[i][j] = c;
+			arr[j][i] = r;
+
+			if (i == 1) break;	
+			if (j == 2) i++;
+			if (j < 2)  j++;
+
+		for (int[] n : arr) {
+			System.out.println(Arrays.toString(n));
+		}
+
+	}
+
+}
